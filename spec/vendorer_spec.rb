@@ -189,6 +189,12 @@ describe Vendorer do
       ls('its_recursive/.git').first.should include('cannot access')
     end
 
+    it "keeps .git folder if :keep_git is provided" do
+      write 'Vendorfile', "folder 'its_recursive', '../../.git', :keep_git => true"
+      vendorer
+      ls('its_recursive/.git').first.should_not include('cannot access')
+    end
+
     it "does not update an existing folder" do
       vendorer
       write('its_recursive/Gemfile', 'Foo')

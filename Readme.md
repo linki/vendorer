@@ -46,6 +46,7 @@ end
 
 # Checkout a specific :ref/:tag/:branch
 folder 'vendor/plugins/parallel_tests', 'https://github.com/grosser/parallel_tests.git', :tag => 'v0.6.10'
+# provide :keep_git => true if you don't want the nested .git folder to be deleted
 
 # DRY folders
 folder 'vendor/assets/javascripts' do

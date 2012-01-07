@@ -30,7 +30,7 @@ class Vendorer
         if commit = (options[:ref] || options[:tag] || options[:branch])
           run "cd #{path} && git checkout '#{commit}'"
         end
-        run "rm -rf #{path}/.git"
+        run "rm -rf #{path}/.git" unless options[:keep_git]
         yield path if block_given?
       end
     else
